@@ -6,6 +6,7 @@ import fileUpload from "express-fileupload";
 import dbConnection from "./dataBase/dbConnection.js";
 import { errorMiddelware } from "./middleware/error.js";
 import messageRoute from './routes/message.route.js'
+import userRoute from './routes/user.route.js'
 
 
 
@@ -29,6 +30,7 @@ app.use(fileUpload({useTempFiles:true,
     tempFileDir:'/tmp/'
 }))
 app.use('/api/v1/message',messageRoute)
+app.use('/api/v1/user',userRoute)
 
 dbConnection()
 app.use(errorMiddelware)

@@ -28,8 +28,8 @@ const getMessages = catchAsyncError(async(req,res,next)=>{
 
 // ----- DELETE MESSAGE ----- //
 const deleteMessage = catchAsyncError(async(req,res,next)=>{
-  const {id} = req.params
-  const data = await Message.findOne({id})
+  const {id} = req.params;
+  const data = await Message.findById(id)
   if(!data){
     return next(new ErrorHandler("Message Not Found",404))
   }
